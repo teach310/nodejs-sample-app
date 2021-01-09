@@ -1,0 +1,9 @@
+version: "3"
+services:
+    node:
+        image: node:14.15
+        volumes:
+            - .:/project
+        tty: true
+        working_dir: /project
+        command: bash
