@@ -6,4 +6,6 @@ services:
             - .:/project
         tty: true
         working_dir: /project
-        command: bash
+        ports:
+            - "3000:3000"
+        command: npm start
