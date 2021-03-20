@@ -9,6 +9,7 @@ services:
     volumes:
       - "./mysql/db-data/:/var/lib/mysql" # データ永続化
       - "./mysql/my.cnf:/etc/mysql/conf.d/my.cnf" # 日本語をデータとして使うために必要
+      - "./db:/db"
   node:
     image: node:14.15
     volumes:
