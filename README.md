@@ -28,4 +28,10 @@ mysql> select * from users;
 # 起動
 ```
 docker-compose up -d
+
+docker-compose logs
+#=> server started port 3000 を確認
 ```
+
+ブラウザで以下でホーム画面
+localhost:3000
