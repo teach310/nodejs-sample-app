@@ -27,7 +27,7 @@ app.get('/users', (req, res) => {
   connection.query(
     'SELECT * FROM users',
     (error, results) => {
-      res.render("users/index.ejs", {users: results})
+      res.render('users/index.ejs',{users: results});
     }
   );
 });
