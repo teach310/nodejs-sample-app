@@ -50,7 +50,8 @@ app.get('/items/new', (req, res) => {
 
 app.post('/create', (req, res) =>{
   connection.query(
-    'INSERT INTO items (name) VALUES (?)', [req.body.itemName],
+    'INSERT INTO items (name) VALUES (?)', 
+    [req.body.itemName],
     (error, results) => {
       res.redirect('/items')
     }
@@ -59,3 +60,4 @@ app.post('/create', (req, res) =>{
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`server started port ${port}`));
+
