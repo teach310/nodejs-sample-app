@@ -44,5 +44,18 @@ app.get('/items', (req, res) => {
   );
 });
 
+app.get('/items/new', (req, res) => {
+  res.render('items/new.ejs');
+});
+
+app.post('/create', (req, res) =>{
+  connection.query(
+    'INSERT INTO items (name) VALUES (?)', [req.body.itemName],
+    (error, results) => {
+      res.redirect('/items')
+    }
+  )
+})
+
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`server started port ${port}`));
