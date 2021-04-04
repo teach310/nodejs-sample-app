@@ -53,26 +53,31 @@ header {
     text-align: center;
     color: #ffffff;
     border: 2px solid #80bcff;
-  }
-  .container-header .new-button:hover {
+}
+.container-header .new-button:hover {
     background-color: #ffffff;
     color: #80bcff;
     transition: all 0.3s ease;
-  }
+}
 
-  .cancel-button {
+.cancel-button {
     margin-top: 16px;
     margin-left: 2px;
     font-weight: 600;
     color: #bac6d3;
     text-decoration: underline;
     display: inline-block;
-  }
-  
-  .cancel-button:hover {
-    color: #80bcff;
-  }
+}
 
+.cancel-button:hover {
+    color: #80bcff;
+}
+.item-form-wrapper {
+    background-color: #ffffff;
+    border: 1px solid #f0f4f9;
+    border-radius: 0px 0px 2px 2px;
+    padding: 32px;
+}
 /* index ================================ */
 .table-head {
     display: flex;

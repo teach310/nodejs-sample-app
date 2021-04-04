@@ -58,14 +58,5 @@ app.post('/create', (req, res)=>{
   );
 });
 
-// app.get('/index', (req,res) => {
-//   connection.query(
-//     'SELECT * FROM items',
-//     (error, results) => {
-//       res.render('index.ejs', {items: results});
-//     }
-//   );
-// })
-
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`server started port ${port}`));
