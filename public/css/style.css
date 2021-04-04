@@ -43,6 +43,36 @@ header {
     margin-bottom: 12px;
 }
 
+.container-header .new-button {
+    background: #80bcff;
+    border-radius: 30px;
+    font-size: 14px;
+    width: 120px;
+    height: 45px;
+    line-height: 43px;
+    text-align: center;
+    color: #ffffff;
+    border: 2px solid #80bcff;
+  }
+  .container-header .new-button:hover {
+    background-color: #ffffff;
+    color: #80bcff;
+    transition: all 0.3s ease;
+  }
+
+  .cancel-button {
+    margin-top: 16px;
+    margin-left: 2px;
+    font-weight: 600;
+    color: #bac6d3;
+    text-decoration: underline;
+    display: inline-block;
+  }
+  
+  .cancel-button:hover {
+    color: #80bcff;
+  }
+
 /* index ================================ */
 .table-head {
     display: flex;
