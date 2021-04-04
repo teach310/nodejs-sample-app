@@ -18,6 +18,8 @@ connection.connect((err) => {
 });
 
 const app = express();
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.render("index.ejs", {message: "うおおおおおお"})
@@ -32,5 +34,29 @@ app.get('/users', (req, res) => {
   );
 });
 
+app.get('/items', (req, res) => {
+  connection.query(
+    'SELECT * from items',
+    (error, results) => {
+      res.render('items/index.ejs', { items: results});
+    }
+  );
+});
+
+app.get('/items/new', (req, res) => {
+  res.render('items/new.ejs');
+});
+
+app.post('/create', (req, res) =>{
+  connection.query(
+    'INSERT INTO items (name) VALUES (?)', 
+    [req.body.itemName],
+    (error, results) => {
+      res.redirect('/items')
+    }
+  )
+})
+
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`server started port ${port}`));
+
