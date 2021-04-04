@@ -7,3 +7,8 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL UNIQUE,
   password CHAR(36) NOT NULL
 );
+
+CREATE TABLE items (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL
+);

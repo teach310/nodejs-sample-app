@@ -18,6 +18,8 @@ connection.connect((err) => {
 });
 
 const app = express();
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.render("index.ejs", {message: "うおおおおおお"})
@@ -28,6 +30,16 @@ app.get('/users', (req, res) => {
     'SELECT * FROM users',
     (error, results) => {
       res.render("users/index.ejs", {users: results})
+    }
+  );
+});
+
+app.get('/items', (req, res) => {
+  connection.query(
+    'SELECT * from items',
+    (error, results) => {
+      console.log(results);
+      res.render('items/index.ejs', { items: results});
     }
   );
 });
