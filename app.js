@@ -38,7 +38,6 @@ app.get('/items', (req, res) => {
   connection.query(
     'SELECT * from items',
     (error, results) => {
-      console.log(results);
       res.render('items/index.ejs', { items: results});
     }
   );
