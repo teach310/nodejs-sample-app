@@ -69,10 +69,20 @@ app.post('/items/delete/:id', (req, res) =>{
 
 app.get('/items/edit/:id', (req, res) =>{
   connection.query(
-    'SELECT * FROM items WHERE id = ?',
+    'SELECT * from items WHERE id = ?',
     [req.params.id],
     (error, results) => {
-      res.render('/items/edit.ejs', {item: results[0]});
+      res.render('items/edit.ejs', { item: results[0]});
+    }
+  );
+});
+
+app.post('/items/update/:id', (req, res) => {
+  connection.query(
+    'UPDATE items SET name = ? WHERE id = ?',
+    [req.body.itemName, req.params.id],
+    (error, results) => {
+      res.redirect('/items');
     }
   );
 });
