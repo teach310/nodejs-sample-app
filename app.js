@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-  res.render("index.ejs", {message: "うおおおおおお"})
+  res.render("index.ejs", {message: "テストサイトへようこそ!"})
 });
 
 app.get('/users', (req, res) => {
