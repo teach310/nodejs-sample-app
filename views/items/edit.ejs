@@ -14,15 +14,16 @@
         <h1>買い物リスト編集</h1>
       </div>
       <div>
-        <div class="item-form-wrapper">
+        <div>
           <p class="form-label">買うもの</p>
           <form action="/items/update/<%= item.id%>" method="post">
             <input type = "text" name = "itemName" value = "<%= item.name%>">
             <input type = "submit" value = "更新する">
           </form>
         </div>
-        <a href="/items" class="cancel-button">もどる</a>>
+        <a href="/items">もどる</a>>
       </div>
     </div>
   </body>
 </html>
+
