@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-  res.render("index.ejs", {message: "うおおおおおお"})
+  res.render("index.ejs", {message: "テストサイトへようこそ!"})
 });
 
 app.get('/users', (req, res) => {
@@ -47,7 +47,7 @@ app.get('/items/new', (req, res) => {
   res.render('items/new.ejs');
 });
 
-app.post('/create', (req, res) =>{
+app.post('/items/create', (req, res) =>{
   connection.query(
     'INSERT INTO items (name) VALUES (?)', 
     [req.body.itemName],
@@ -57,6 +57,35 @@ app.post('/create', (req, res) =>{
   )
 })
 
+app.post('/items/delete/:id', (req, res) =>{
+  connection.query(
+    'DELETE FROM items WHERE id = ?',
+    [req.params.id],
+    (error, results) => {
+      res.redirect('/items');
+    }
+  );
+});
+
+app.get('/items/edit/:id',(req, res) => {
+  connection.query(
+    'SELECT * FROM items WHERE id = ?',
+    [req.params.id],
+    (error, results) =>{
+      res.render('items/edit.ejs',{item: results[0]});
+    }
+  );
+});
+
+app.post('/items/update/:id', (req, res) =>{
+  connection.query(
+    'UPDATE items SET name = ? WHERE id = ?',
+    [req.body.itemName, req.params.id],
+    (error,results) =>{
+      res.redirect('/items')
+    }
+  );
+});
+
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`server started port ${port}`));
-
