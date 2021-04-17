@@ -57,6 +57,15 @@ app.post('/create', (req, res) =>{
   )
 })
 
+app.post('/delete/:id', (req, res) =>{
+  connection.query(
+    'DELETE FROM items WHERE id = ?',
+    [req.params.id],
+    (error, results) => {
+      res.redirect('/items');
+    }
+  );
+});
+
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`server started port ${port}`));
-
