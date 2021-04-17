@@ -148,3 +148,45 @@ header {
     color: #80bcff;
     transition: all 0.3s ease;
 }
+
+.item-data {
+    display: flex;
+}
+
+.item-menu {
+    display: flex;
+}
+
+.item-menu form {
+    width: 60px;
+    text-align: center;
+}
+
+.item-menu form input {
+    font-size: 16px;
+    color: #bac6d3;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.item-menu form input:hover {
+    color: #ff7f8c;
+    transition: all 0.3s ease;
+}
+
+.item-menu a {
+    width: 60px;
+    font-size: 16px;
+    color: #bac6d3;
+    text-align: center;
+}
+
+.item-menu a:hover {
+    color: #80bcff;
+}
