@@ -47,7 +47,7 @@ app.get('/items/new', (req, res) => {
   res.render('items/new.ejs');
 });
 
-app.post('/create', (req, res) =>{
+app.post('/items/create', (req, res) =>{
   connection.query(
     'INSERT INTO items (name) VALUES (?)', 
     [req.body.itemName],
@@ -57,7 +57,7 @@ app.post('/create', (req, res) =>{
   )
 })
 
-app.post('/delete/:id', (req, res) =>{
+app.post('/items/delete/:id', (req, res) =>{
   connection.query(
     'DELETE FROM items WHERE id = ?',
     [req.params.id],
