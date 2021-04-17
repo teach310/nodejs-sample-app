@@ -47,7 +47,7 @@ app.get('/items/new', (req, res) => {
   res.render('items/new.ejs');
 });
 
-app.post('/items/create', (req, res) =>{
+app.post('/create', (req, res) =>{
   connection.query(
     'INSERT INTO items (name) VALUES (?)', 
     [req.body.itemName],
