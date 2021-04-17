@@ -67,5 +67,15 @@ app.post('/items/delete/:id', (req, res) =>{
   );
 });
 
+app.get('/items/edit/:id', (req, res) =>{
+  connection.query(
+    'SELECT * FROM items WHERE id = ?',
+    [req.params.id],
+    (error, results) => {
+      res.render('/items/edit.ejs', {item: results[0]});
+    }
+  );
+});
+
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`server started port ${port}`));
