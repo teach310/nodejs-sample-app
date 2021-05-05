@@ -1,11 +1,15 @@
 const express = require('express');
 const mysql = require('mysql');
+const fs = require('fs');
+
+const content = fs.readFileSync('config.json','utf-8');
+const config = JSON.parse(content);
 
 // 本当はパスワードとかをコード直で書くのはNG
 const connection = mysql.createConnection({
   host: 'mysql', // hostはdocker-compose.ymlで設定したservice名
-  user: 'root',
-  password: 'mysql',
+  user: 'config.mysql.username',
+  password: 'config.mysql.password',
   database: 'sample'
 });
 
