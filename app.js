@@ -8,8 +8,8 @@ const config = JSON.parse(content);
 // 本当はパスワードとかをコード直で書くのはNG
 const connection = mysql.createConnection({
   host: 'mysql', // hostはdocker-compose.ymlで設定したservice名
-  user: 'config.mysql.username',
-  password: 'config.mysql.password',
+  user: config.mysql.username,
+  password: config.mysql.password,
   database: 'sample'
 });
 
